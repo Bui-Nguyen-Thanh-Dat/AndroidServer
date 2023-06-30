@@ -53,16 +53,44 @@
   </nav>
 
       
-      <div style="display:inline-block;margin: 5px;">
+      <div class="container-fluid" style="display:inline-block;">
         <div style=" z-index: 5;position:absolute;">MD18101-Server Android</div>
         <img src="images/banner.jpg" style="z-index: 1;position: absolute;" />
       </div>
 
       
 
-      
+      <table class="table" style="margin-top: 150px;">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr class="table-light">
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <form class="row g-3" style="margin-top: 10%;">
+    <form class="row g-3">
       <div class="col-md-4">
         <label for="validationServer01" class="form-label">First name</label>
         <input type="text" class="form-control is-valid" id="validationServer01" value="Mark" required>
