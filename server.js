@@ -2,40 +2,17 @@ var http = require("http");
 var fs = require("fs");
 var formidable = require("formidable");
 
-http
-  .createServer(function (req, res) {
-    if (req.url == "/") {
-    readFlieResponse('calculator.html',res);
+http.createServer(function (req, res) {
+    if (req.url == "/page-c.html") {
+    res.writeHead(301,{Location : "http://" + req.headers['host'] + '/page-b.html'});
     
-    } else if (req.url == "/album") {
-      readFlieResponse("./json/album.json", res);
-    } else if (req.url == "/taofile") {
-      fs.writeFile("mynewfile3.txt", "Hello content!", function (err) {
-        if (err) throw err;
-        console.log("Saved!");
-      });
-    }else if (req.url == "/appendFile"){
-      fs.appendFile('mynewfile1.txt', 'Hello content1!', function (err) {
-        if (err) throw err;
-        console.log('Saved!');
-      });
-    }else if (req.url=="/appendFileSync") {
-      fs.appendFileSync("mynewfile1.txt","Learn Nodejs with the help of well build Nodejs tutorials","utf-8");
-      console.log("Saved!")
-    }else if (req.url=="/renameFile"){
-    fs.rename("mynewfile1.txt","mynewfile2.txt",function(err){
-          if(err){
-            console.log(err);
-          }else{
-            console.log("Renamed!");
-          }
-        });
-        }else if (req.url=="/renameFileSync"){
-          fs.renameSync("mynewfile1.txt","mynewfile2.txt");
-          console.log("Renamed!")
+    return res.end();
+    }else{
+    console.log(req.url);
+    readFlieResponse(req.url.substring(1),res);
     }
   })
-  .listen(8080);
+  .listen(8000);
 
 function readFlieResponse(fileURL, res) {
   fs.readFile(fileURL, function (err, data) {
